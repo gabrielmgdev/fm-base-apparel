@@ -1,0 +1,314 @@
+/* 
+ * ================================= 
+ * Table of Contents
+ * ================================= 
+ * 1. Imports
+ * 2. Variables
+ * 3. Reset
+ * 4. Utilities
+ * 5. Hero Section
+ * 6. Attribution
+ * 7. Media Queries
+ * 8. Animations
+ */
+
+/* 1. Imports */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+/* 2. Variables */
+:root {
+  --desaturated-red-color: hsl(0, 36%, 70%);
+  --soft-red-color: hsl(0, 93%, 68%);
+  --dark-grayish-red-color: hsl(0, 6%, 24%);
+  --primary-font: 'Josefin Sans', sans-serif;
+  --bg-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --btn-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  --btn-gradient-hover: linear-gradient(
+    135deg,
+    hsl(0, 80%, 98%),
+    hsl(0, 74%, 84%)
+  );
+}
+
+/* 3. Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--primary-font);
+  font-size: 16px;
+}
+
+span {
+  font-size: inherit;
+}
+
+/* 4. Utilities */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.x-large {
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7rem;
+  line-height: 1.2;
+}
+
+.text-desaturated-red {
+  color: var(--desaturated-red-color);
+}
+
+.text-grayish-red {
+  color: var(--dark-grayish-red-color);
+}
+
+.font-weight-light {
+  font-weight: 300;
+}
+
+.btn {
+  font-size: inherit;
+  display: inline-block;
+  padding: 0.7rem 2.3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn-primary {
+  background-image: var(--btn-gradient);
+}
+
+.btn-primary:hover {
+  background-image: var(--btn-gradient-hover);
+}
+
+.invalid {
+  border: 1px solid var(--soft-red-color) !important;
+  background-image: url(../images/icon-error.svg);
+  background-repeat: no-repeat;
+  background-position: center right 2.5rem;
+}
+
+#form-text {
+  display: block;
+  margin: 0.5rem 2rem;
+  color: var(--soft-red-color);
+}
+
+.d-none {
+  display: none;
+}
+
+/* 5. Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-info {
+  width: calc(100% - 610px);
+  background-image: url(../images/bg-pattern-desktop.svg), var(--bg-gradient);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.hero-info p {
+  text-align: left;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+  padding-right: 4rem;
+}
+
+.hero-info form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding-right: 3rem;
+  width: 90%;
+}
+
+.hero-info form input {
+  width: 100%;
+  padding: 0.8rem 4.5rem 0.8rem 1.5rem;
+  border: 1px solid var(--desaturated-red-color);
+  border-radius: 20px;
+}
+
+.hero-info form input::placeholder {
+  color: var(--desaturated-red-color);
+}
+
+.hero-info form input:focus {
+  outline: none;
+  -webkit-animation: scale 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.hero-info form button {
+  position: absolute;
+  right: 0;
+}
+
+.hero-img {
+  width: 610px;
+  background-image: url(../images/hero-desktop.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+
+.hero-img-mobile {
+  display: none;
+}
+
+.logo {
+  margin: 4rem 0 7rem 0;
+}
+
+/* 6. Attribution */
+.attribution {
+  width: 100%;
+}
+
+.attribution p {
+  text-align: center;
+  color: #666;
+}
+
+.attribution a {
+  color: var(--desaturated-red-color);
+  text-decoration: none;
+}
+
+/* 7. Media Queries */
+@media (max-width: 1400px) {
+  .x-large {
+    font-size: 3rem;
+    margin: 3rem 0;
+  }
+
+  .logo {
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-info,
+  .hero-img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    overflow: auto;
+  }
+
+  .hero-info {
+    width: 60%;
+  }
+
+  .hero-info p {
+    padding-right: 0;
+  }
+
+  .hero-img {
+    width: 40%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 1200px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-info {
+    width: 100%;
+  }
+
+  .hero-info p {
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero-info form {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .hero-info form div {
+    width: 100%;
+  }
+
+  .hero-img {
+    display: none;
+  }
+
+  .hero-img-mobile {
+    display: block;
+    height: 250px;
+    background-image: url(../images/hero-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+
+  .logo {
+    margin-left: 2rem;
+  }
+
+  .x-large {
+    text-align: center;
+  }
+}
+
+/* 8. Animations */
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
